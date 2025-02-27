@@ -1,5 +1,5 @@
 import React from 'react';
-import Users from './compenents/Users';
+import Users from './Users';
 
 const Admin = () => {
   return (
