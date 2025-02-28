@@ -14,7 +14,7 @@ const Login = () => {
             name="email" 
             // value={formData.email} 
             // onChange={handleChange} 
-            className="w-full p-2 border rounded-lg"
+            className="w-full p-2 border border-black rounded-lg"
             required
           />
         </div>
@@ -25,16 +25,18 @@ const Login = () => {
             name="password" 
             // value={formData.password} 
             // onChange={handleChange} 
-            className="w-full p-2 border rounded-lg"
+            className="w-full p-2 border border-black rounded-lg"
             required
           />
         </div>
-        <button type="submit" className="w-full bg-blue-600 text-black p-2 rounded-lg hover:bg-blue-700">
+        <button type="submit" className="w-full bg-blue-600 text-white p-2 rounded-lg hover:bg-blue-700">
           Sign In
         </button>
       </form>
       <p className="text-center text-black mt-4">
         Don't have an account? <a href="/register" className="text-white text-blue-600">Register</a>
+      
+      <a href="/" className="text-white text-blue-600">Home</a>
       </p>
     </div>
   </div>
