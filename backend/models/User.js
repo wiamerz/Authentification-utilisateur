@@ -19,6 +19,11 @@ const userSchema = new mongoose.Schema({
     required: [true, 'Le mot de passe est requis'],
     minlength: [6, 'Le mot de passe doit contenir au moins 6 caractères']
   },
+  confirmpassword: {  
+    type: String,
+    required: [true, 'La confirmation de mot de passe est requis'],
+    minlength: [6, 'Le mot de passe doit contenir au moins 6 caractères']
+  },
   number: {
     type: String,
     required: [true, 'Le numéro de téléphone est requis']
