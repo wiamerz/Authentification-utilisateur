@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const bcrypt = require('bcrypt');
 
 const userSchema = new mongoose.Schema({
   username: {
@@ -8,23 +9,28 @@ const userSchema = new mongoose.Schema({
   },
   email: {
     type: String,
-    required: [true, 'email est requis'],
+    required: [true, "L'email est requis"],
     trim: true,
     unique: true,
+    match: [/^\S+@\S+\.\S+$/, "Format d'email invalide"]
   },
   password: {  
-    type: Number,  
-    required: [true, 'email est requis'],
+    type: String,
+    required: [true, 'Le mot de passe est requis'],
+    minlength: [6, 'Le mot de passe doit contenir au moins 6 caractères']
   },
-  confirmpassword: {  
-    type: Number,  
-    required: [true, 'email est requis'],
-  },
-
   number: {
-    type: Number,  
-    required: [true, 'phone number est requis'],
-  },
+    type: String,
+    required: [true, 'Le numéro de téléphone est requis']
+  }
+}, { timestamps: true });
+
+// Hashage du mot de passe avant enregistrement
+userSchema.pre('save', async function(next) {
+  if (this.isModified('password')) {
+    this.password = await bcrypt.hash(this.password, 10);
+  }
+  next();
 });
 
 module.exports = mongoose.model('User', userSchema);
