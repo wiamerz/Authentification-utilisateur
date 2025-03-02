@@ -119,7 +119,7 @@ function Register() {
   if (validateForm()) {
     setLoading(true);
     try {
-      setSuccessMessage('Inscription réussie! Redirection vers la page de connexion...');
+      // setSuccessMessage('Inscription réussie! Redirection vers la page de connexion...');
 
       // Sending data to the backend API using Axios
       const response = await axios.post('http://127.0.0.1:5000/api/auth/register', formData, {
@@ -137,7 +137,7 @@ function Register() {
         setErrors({ ...errors, general: response.data.message || 'Une erreur est survenue' });
       }
     } catch (error) {
-      setErrors({ ...errors, general: 'Erreur réseau, veuillez réessayer' });
+      setErrors({ ...errors, general: err });
     } finally {
       setLoading(false);
     }
@@ -236,12 +236,12 @@ function Register() {
           </button>
         </form>
 
-        <p className="text-center mt-4">
+        <p className="text-center text-black mt-4">
           Already have an account? <a href="/login" className="text-blue-600">Login</a>
         </p>
-        <p className="text-center mt-2">
+        {/* <p className="text-center mt-2">
           <a href="/" className="text-blue-600">Home</a>
-        </p>
+        </p> */}
       </div>
     </div>
   );

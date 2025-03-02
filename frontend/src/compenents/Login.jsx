@@ -103,7 +103,7 @@ function Login () {
         {successMessage && <p className="text-green-500 text-center mt-4">{successMessage}</p>} {/* Show success message */}
         <p className="text-center text-black mt-4">
           Don't have an account? <a href="/register" className="text-white text-blue-600">Register</a>
-          <a href="/" className="text-white text-blue-600">Home</a>
+          {/* <a href="/" className="text-white text-blue-600">Home</a> */}
         </p>
       </div>
     </div>
